@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - JobRecko</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="feedback-style.css"> 
+</head>
+<body>
+    
+    <div class="page-background"></div>
+
+    <header class="top-bar">
+        <div class="menu-icon" id="menu-toggle">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="app-logo">JobRecko</div>
+       <a href="chatbot.html" class="ai-icon" id="topBarAiIconLink">
+    <div class="ai-icon">
+        🤖
+    </div>
+</a>
+    </header>
+
+    <nav class="nav-menu" id="nav-menu">
+        <button class="close-btn" id="close-nav">&times;</button>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile-find-job.html">Find Job</a></li>
+            <li><a href="resume.html">Resume Making</a></li>
+            <li><a href="recommended-jobs.html">Recommended Jobs</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="privacy.html">Privacy & Policy</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <main class="feedback-container">
+        <header class="feedback-header">
+            <h1>We Value Your Feedback</h1>
+            <p>Help us improve your job search experience by sharing your thoughts and suggestions.</p>
+        </header>
+        
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="feedbackType">What is your feedback about?</label>
+                <select id="feedbackType" name="feedbackType" required>
+                    <option value="">Select a Category</option>
+                    <option value="Recommendations">Job Recommendations</option>
+                    <option value="UI/UX">Website Design/Ease of Use</option>
+                    <option value="Bugs">Reporting a Bug or Error</option>
+                    <option value="FeatureRequest">New Feature Request</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">How likely are you to recommend us?</label>
+                <div class="rating-group">
+                    <input type="radio" id="rating5" name="rating" value="5" required><label for="rating5">Excellent</label>
+                    <input type="radio" id="rating4" name="rating" value="4"><label for="rating4">Good</label>
+                    <input type="radio" id="rating3" name="rating" value="3"><label for="rating3">Neutral</label>
+                    <input type="radio" id="rating2" name="rating" value="2"><label for="rating2">Poor</label>
+                    <input type="radio" id="rating1" name="rating" value="1"><label for="rating1">Very Poor</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="comments">Your Comments / Suggestions</label>
+                <textarea id="comments" name="comments" rows="6" placeholder="Please be detailed so we can address your feedback effectively." required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+    </main>
+    
+    <script src="home.js"></script> 
+    <script>
+        // Placeholder for submitting form data
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you! Your feedback has been successfully submitted and will help us improve.');
+            // In a live site, this data would be sent to a server.
+        });
+    </script>
+</body>
+</html>

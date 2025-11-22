@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - JobRecko</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="chatbot-styles.css"> 
+</head>
+<body>
+
+    <div class="page-background"></div>
+
+    <header class="top-bar">
+        <div class="menu-icon" id="menu-toggle">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="app-logo">JobRecko</div>
+        <div class="ai-icon" id="topBarAiIcon">
+            🤖
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="nav-menu">
+        <button class="close-btn" id="close-nav">&times;</button>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile-find-job.html">Find Job</a></li>
+            <li><a href="resume.html">Resume Making</a></li>
+            <li><a href="recommended-jobs.html">Recommended Jobs</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="privacy.html">Privacy & Policy</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <main class="chatbot-main-page">
+        <div class="ai-chat-window-full" id="aiChatWindow">
+            <div class="chat-header">
+            <h1>JobRecko AI Assistant</h1>                    
+        </div>
+            <div class="chat-body" id="chatBody">
+                <div class="message-container ai-message">
+                    <p>Hello! I'm your JobRecko AI Assistant. I can help answer questions about using the site, resume making, and job finding. How can I assist you today?</p>
+            </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="userInput" placeholder="Ask me about JobRecko features..." autocomplete="off">
+                <button class="send-Btn" id="sendBtn" disabled>Send</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="home.js"></script> 
+    <script src="chatbot.js"></script>   
+</body>
+</html>

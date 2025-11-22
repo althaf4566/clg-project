@@ -1,0 +1,555 @@
+/* Styling to integrate the two-panel layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background Image and Overlay (uses images1.jpg) */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('res.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.page-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); 
+    z-index: -1;
+}
+
+.maker-header {
+    background-color: rgba(25, 89, 153, 0.9);
+    color: #ffffff;
+    padding: 16px 20px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+/* --- Main Layout --- */
+.resume-maker-main {
+    display: flex;
+    max-width: 1400px;
+    margin: 80px auto 40px; 
+    padding: 20px;
+    gap: 30px;
+}
+
+/* Input Form Panel */
+.input-panel {
+    flex: 1; 
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-height: 110vh;
+    overflow-y: auto; 
+}
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-panel h2 {
+    color: #1a2a4b;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #495057;
+}
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+}
+input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+small {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+/* Preview Panel */
+.preview-panel {
+    flex: 1; 
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.preview-panel header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #dee2e6;
+}
+.preview-panel h2 { margin: 0; color: #000000; }
+.print-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.print-btn:hover { background-color: #218838; }
+
+
+
+/* --- RESUME OUTPUT STYLING (Based on Image Template) --- */
+.resume-output {
+    padding: 0; /* No padding on the main container */
+    height: 100%;
+    overflow-y: auto;
+    color: #333;
+    line-height: 1.6; /* Increased line-height for readability */
+    display: flex; /* Always flex for this template */
+    box-sizing: border-box; /* Important for padding/width calculations */
+}
+
+/* Left Column (Sidebar) */
+.resume-output.template-image .resume-sidebar {
+    width: 35%; /* Wider sidebar as per image */
+    background-color: #023F5D; /* Dark blue background */
+    padding: 40px 25px; /* Adjust padding */
+    color: #fff; /* White text */
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+.resume-output.template-image .user-photo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.resume-output.template-image .user-photo {
+    width: 140px; /* Larger photo */
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.2); /* Lighter border */
+}
+.resume-output.template-image .sidebar-section h3 {
+    color: #fff; /* White title */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4); /* Lighter divider */
+    padding-bottom: 8px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.resume-output.template-image .contact-item {
+    display: flex; /* For icon and text alignment */
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+.resume-output.template-image .contact-item i {
+    margin-right: 10px;
+    color: #A9D9F8; /* Light blue icon color */
+    width: 20px; /* Fixed width for icons */
+    text-align: center;
+}
+.resume-output.template-image .sidebar-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+.resume-output.template-image .sidebar-list li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    display: flex;
+    align-items: baseline; /* Align text better with custom bullet */
+}
+.resume-output.template-image .sidebar-list li::before {
+    content: '•'; /* Custom bullet point */
+    color: #A9D9F8; /* Light blue bullet */
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-weight: bold;
+}
+.resume-output.template-image .education-item p {
+    margin: 0;
+    font-size: 0.95em;
+}
+.resume-output.template-image .education-item .degree {
+    font-weight: bold;
+    color: #A9D9F8;
+    margin-top: 5px;
+}
+.resume-output.template-image .education-item .gpa {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Right Column (Main Content) */
+.resume-output.template-image .resume-main-content {
+    width: 65%; /* Narrower main content as per image */
+    padding: 40px 40px 40px 30px; /* Adjust padding */
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.resume-output.template-image .main-header {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #E0E0E0; /* Light gray divider */
+}
+
+.resume-output.template-image  .main-header h1 {
+    font-size: 1.5em; color: #1a2a4b; margin: 0;text-transform: uppercase;
+}
+.resume-output.template-image  .main-header .job-title-header {
+    font-size: 1.1em; color: #555; margin-top: 5px;
+}
+
+
+
+.resume-output.template-image .main-content-section h3 {
+    color: #2F2F2F; /* Dark title */
+    border-bottom: 2px solid #E0E0E0; /* Lighter divider */
+    padding-bottom: 8px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.resume-output.template-image .profile-summary {
+    font-size: 0.95em;
+    margin-bottom: 0;
+}
+.resume-output.template-image .experience-item {
+    margin-bottom: 25px;
+    border-left: none; /* No blue bar in this template style */
+    padding-left: 0;
+}
+.resume-output.template-image .experience-item .job-title-exp {
+    font-weight: bold;
+    color: #2F2F2F;
+    margin-bottom: 3px;
+    font-size: 1.1em;
+}
+.resume-output.template-image .experience-item .company-duration-exp {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+.resume-output.template-image .experience-item ul {
+    list-style-type: disc;
+    margin: 0;
+    padding-left: 20px;
+}
+.resume-output.template-image .experience-item li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+/* References Section */
+.resume-output.template-image .references-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.resume-output.template-image .reference-item {
+    width: 48%; /* Two references side-by-side */
+    line-height: 1.3;
+}
+.resume-output.template-image .reference-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+.resume-output.template-image .reference-item .ref-name {
+    font-weight: bold;
+    color: #2F2F2F;
+    margin-bottom: 3px;
+}
+.resume-output.template-image .reference-item .ref-title-company {
+    font-style: italic;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+
+
+/* --- Default Modern (Two-Column) Template - Fallback/Alternative --- */
+.resume-output.modern-default {
+    display: flex;
+}
+.resume-output.modern-default .resume-sidebar { /* Dark blue sidebar for distinction */
+    width: 30%;
+    background-color: #3f51b5; /* Slightly different blue */
+    padding: 30px 20px;
+    color: #fff;
+    line-height: 1.2;
+}
+.resume-output.modern-default .resume-sidebar h3 {
+    color: #fff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+.resume-output.modern-default .contact-item {
+    font-size: 0.9em; margin-bottom: 5px;
+}
+.resume-output.modern-default .skill-tag { 
+    background-color: #536dfe; /* Lighter blue for tags */
+    color: white; padding: 4px 8px; border-radius: 3px; margin: 4px 4px 4px 0; font-size: 0.85em; 
+}
+.resume-output.modern-default .user-photo {
+    width: 140px; /* Larger photo */
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.2); 
+}
+.resume-output.modern-default .resume-main-content {
+    width: 70%;
+    padding: 30px;
+    background-color: #fff;
+}
+.resume-output.modern-default .main-header h1 {
+    font-size: 2.2em; color: #1a2a4b; margin: 0;
+}
+.resume-output.modern-default .main-header .job-title-header {
+    font-size: 1.1em; color: #555; margin-top: 5px;
+}
+.resume-output.modern-default .main-content-section h3 {
+    color: #1a2a4b; border-bottom: 1px solid #dee2e6; padding-bottom: 5px; margin-top: 20px; margin-bottom: 10px; font-size: 1.3rem;
+}
+.resume-output.modern-default .experience-item {
+    margin-bottom: 20px; padding-left: 10px; border-left: 3px solid #b3e5fc;
+}
+
+.resume-output.modern-default .job-title-exp { font-weight: bold; color: #333; margin-bottom: 3px; }
+.resume-output.modern-default .company-duration-exp { font-style: italic; color: #6c757d; font-size: 0.95em; margin-bottom: 5px; }
+
+/* References Section */
+.resume-output.modern-default .references-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.resume-output.modern-default .reference-item {
+    width: 48%; /* Two references side-by-side */
+    line-height: 1.3;
+}
+.resume-output.modern-default .reference-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+.resume-output.modern-default .reference-item .ref-name {
+    font-weight: bold;
+    color: #2F2F2F;
+    margin-bottom: 3px;
+}
+.resume-output.modern-default .reference-item .ref-title-company {
+    font-style: italic;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+
+/* --- Classic (Single-Column) Template --- */
+.resume-output.classic {
+    display: block; 
+    padding: 30px 40px;
+    background-color: #fff;
+}
+.resume-output.classic .main-header {
+    text-align: center;
+    border-bottom: 3px solid #007bff;
+    margin-bottom: 20px;
+}
+.resume-output.classic .main-header h1 {
+    font-size: 2.5em; color: #1a2a4b; margin: 0;
+}
+.resume-output.classic .main-header .job-title-header {
+    font-size: 1.2em; color: #555; margin-top: 5px;
+}
+.resume-output.classic .contact-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.resume-output.classic .contact-item {
+    font-size: 0.9em; margin: 2px 0; display: inline-block; margin-right: 15px;
+}
+.resume-output.classic .contact-item i {
+    color: #007bff; margin-right: 5px;
+}
+.resume-output.classic .user-photo-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.resume-output.classic .user-photo {
+    width: 120px; height: 130px; border: 3px solid #007bff;
+}
+.resume-output.classic .main-content-section h3 {
+    color: #1a2a4b; border-bottom: 2px solid #dee2e6; padding-bottom: 5px; margin-top: 25px; margin-bottom: 10px; font-size: 1.4rem; text-transform: uppercase;
+}
+.resume-output.classic .profile-summary {
+    font-size: 0.95em;
+}
+.resume-output.classic .experience-item {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.resume-output.classic .job-title-exp { font-weight: bold; color: #333; margin-bottom: 3px; }
+.resume-output.classic .company-duration-exp { font-style: italic; color: #6c757d; font-size: 0.95em; margin-bottom: 5px; }
+.resume-output.classic .sidebar-list { list-style-type: disc; margin-left: 20px; padding: 0;}
+.resume-output.classic .skill-tag {
+    background-color: #e9ecef; color: #343a40; border: 1px solid #ced4da;
+}
+/* References Section */
+.resume-output.classic .references-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.resume-output.classic .reference-item {
+    width: 48%; /* Two references side-by-side */
+    line-height: 1.3;
+}
+.resume-output.classic .reference-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+.resume-output.classic .reference-item .ref-name {
+    font-weight: bold;
+    color: #2F2F2F;
+    margin-bottom: 3px;
+}
+.resume-output.classic .reference-item .ref-title-company {
+    font-style: italic;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+
+/* Placeholder for empty resume */
+.placeholder-text {
+    text-align: center;
+    color: #6c757d;
+    padding-top: 50px;
+}
+
+/* Submit Button */
+.submit-btn { width: 100%; padding: 12px; margin-top: 20px; background-color: #007bff; color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+.submit-btn:hover { background-color: #0056b3; }
+
+
+/* ------------------------------------------------ */
+/* 🖨️ PRINT MEDIA QUERIES FOR PDF/PRINTING (Fix) */
+/* ------------------------------------------------ */
+@media print {
+    /* Hide all elements that are not part of the resume output */
+    .top-bar, /* Hide the main navigation bar */
+    .nav-menu, /* Hide the side menu */
+    .input-panel, /* Hide the entire input form */
+    .print-btn, /* Hide the print button itself */
+    .placeholder-text, /* Hide the placeholder text */
+    .resume-maker-main::before, /* Hide any background overlays/pseudo-elements if applicable */
+    .page-background /* Hide the main page background */
+     {
+        display: none !important;
+    }
+
+    /* Make the resume preview the only visible element */
+    .resume-maker-main {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        display: block !important; /* Switch to block layout for printing */
+    }
+
+    /* Ensure the preview-panel and its header are handled correctly */
+    .preview-panel {
+        flex: none !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+    }
+    
+    .preview-panel header {
+        /* Hide the header in the preview panel that contains the title and print button */
+        display: none !important; 
+    }
+
+    /* Ensure the resume content itself is properly formatted for A4/Letter page */
+    .resume-output {
+        min-height: 100vh;
+        width: 100%; 
+        display: flex; /* Maintain flex/two-column structure for templates that use it */
+        flex-direction: row; 
+        position: relative;
+        overflow: visible;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure all text is black for printing (high contrast) */
+    .resume-output *, .resume-output {
+        color: #000 !important;
+    }
+
+    /* Set uniform padding for all templates for print quality */
+    .resume-output.template-image,
+    .resume-output.modern-default,
+    .resume-output.classic {
+        padding: 0 !important; /* Resetting padding here as main content handles it */
+    }
+    
+    /* Apply standard margin/padding to main content sections within the resume output */
+    .resume-output.template-image .resume-sidebar,
+    .resume-output.template-image .resume-main-content,
+    .resume-output.modern-default .resume-sidebar,
+    .resume-output.modern-default .resume-main-content,
+    .resume-output.classic {
+        padding: 10mm 15mm !important; /* Use real-world units for consistent printing */
+    }
+}

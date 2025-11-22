@@ -1,0 +1,131 @@
+body {
+    background-color: #e9ecef; /* Fallback color if the image doesn't load */
+    background-image: url('job-background.jpg'); /* Path to your image */
+    background-size: cover; /* This makes the background image cover the entire body */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: transparent;
+    padding: 1.5rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute; /* Changed from fixed to absolute for better layering with background */
+    right: 3;
+    left: 3;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff; /* Changed logo color to white */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff; /* Changed nav link color to white */
+    margin-left: 35px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #cce5ff;
+}
+
+.nav-btn {
+    background-color: #007bff;
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #0056b3;
+}
+
+.form-container {
+    background-color: rgba(253, 253, 253, 0.9); /* Added a slight transparency to the form background so the image peeks through */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-container h2 {
+    color: #0056b3;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #f6f6f7;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.switch-form {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}

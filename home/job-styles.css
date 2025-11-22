@@ -1,0 +1,112 @@
+body {
+    /* Set body to relative for positioning fixed elements */
+    position: relative;
+    min-height: 100vh;
+}
+
+/* New Background for Find Job Page (Using img2.jpg) */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 118%;
+    background-image: url('rec.jpg'); /* Use the desk/resume image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Semi-transparent overlay for readability */
+.page-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0); /* A lighter overlay for professionalism */
+    z-index: -1;
+}
+
+
+
+/* job-styles.css */
+
+.main-content-area {
+    padding-top: 50px; /* Space for the fixed top bar */
+    padding-left: 30px;
+    padding-right: 5px;
+}
+
+.recommended-jobs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recommended-jobs-container h1 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.small-containers-grid {
+    display: grid;
+    /* Create a responsive grid: 3 columns on desktop, fewer on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.job-container {
+    display: block; /* Makes the whole container clickable */
+    text-decoration: none; /* Remove underline from link */
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.job-container h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #343a40;
+}
+
+.job-container:hover {
+    background-color: #e2f0ff; /* Light blue on hover */
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Styles for the Related Job Details Pages --- */
+.job-detail-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.job-detail-section h2 {
+    color: #007bff;
+    margin-top: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.job-detail-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.6;
+}

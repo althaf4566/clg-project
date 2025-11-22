@@ -1,0 +1,136 @@
+/* Styling to integrate the form with the shared background */
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background Image and Overlay - Using same logic as home.css */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images1.jpg'); /* Your career journey image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Semi-transparent overlay for readability */
+.page-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* 60% white overlay */
+    z-index: -1;
+}
+
+/* --- Content Container --- */
+.feedback-container {
+    max-width: 700px;
+    margin: 80px auto 40px; /* Adjusted top margin for fixed header */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.feedback-header {
+    background-color: #28a745; /* Green for positive action/feedback */
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.feedback-header h1 {
+    margin: 0 0 5px;
+    font-size: 2.2rem;
+}
+
+.feedback-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+#feedbackForm {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+select,
+textarea {
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+
+textarea {
+    resize: vertical;
+}
+
+.rating-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.rating-group input[type="radio"] {
+    display: none;
+}
+
+.rating-group label {
+    cursor: pointer;
+    background-color: #f1f1f1;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: normal;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.rating-group input[type="radio"]:checked + label {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}

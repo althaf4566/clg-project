@@ -1,0 +1,94 @@
+/* Styling to ensure the policy text is clean and legible */
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background Image and Overlay - Consistent with home.css */
+/* Uses the same background logic, just ensuring it's applied here */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Semi-transparent overlay for readability */
+.page-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(129, 126, 126, 0.6); /* 60% white overlay */
+    z-index: -1;
+}
+
+/* --- Content Container --- */
+.privacy-container {
+    max-width: 900px;
+    margin: 80px auto 40px; /* Adjusted top margin for fixed header */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.privacy-header {
+    background-color: #373737; /* Light gray for documentation */
+    color: #ffffff;
+    padding: 30px 40px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.privacy-header h1 {
+    margin: 0 0 5px;
+    font-size: 2.5rem;
+}
+
+.privacy-header p {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.policy-content {
+    padding: 40px;
+    line-height: 1.7;
+    color: #343a40;
+}
+
+.policy-content h2 {
+    color: #007bff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.policy-content ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.policy-content li {
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px dashed #ced4da;
+    font-style: italic;
+    font-weight: 600;
+}

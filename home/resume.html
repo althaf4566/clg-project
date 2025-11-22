@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Maker - JobRecko</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="resume-style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="page-background"></div>
+
+    <header class="top-bar">
+        <div class="menu-icon" id="menu-toggle">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="app-logo">JobRecko</div>
+        <a href="chatbot.html" class="ai-icon" id="topBarAiIconLink">
+    <div class="ai-icon">
+        🤖
+    </div>
+</a>
+    </header>
+
+    <nav class="nav-menu" id="nav-menu">
+        <button class="close-btn" id="close-nav">&times;</button>
+        <ul>
+           <li><a href="home.html">Home</a></li>
+            <li><a href="profile-find-job.html">Find Job</a></li>
+            <li><a href="resume.html">Resume Making</a></li>
+            <li><a href="recommended-jobs.html">Recommended Jobs</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="privacy.html">Privacy & Policy</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <main class="resume-maker-main">
+        <div class="input-panel">
+            <header class="maker-header">
+                <h1>Build Your ATS-Ready Resume</h1>
+                <p>Enter your details below to generate a professional resume template.</p>
+            </header>
+            
+            <form id="resumeForm">
+                
+                <h2>Template & Photo</h2>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="templateSelector">Select Template Style</label>
+                        <select id="templateSelector" required>
+                            <option value="">select your template</option>
+                            <option value="template-image">Modern Template 1</option>
+                            <option value="modern-default">Modern Template 2</option>
+                            <option value="classic">Classic (Single-Column)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhoto">Upload Photo (Optional)</label>
+                         <input type="file" id="userPhoto" accept="image/*">
+                        <small> professional photo can be uploaded.</small>
+                    </div>
+                </div>
+
+                <h2>Personal Details</h2>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobTitleHeader">Job Title (for header)</label>
+                    <input type="text" id="jobTitleHeader" placeholder="e.g., Marketing Manager">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" id="phoneNumber" placeholder="+123-456-7890">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="hello@reallygreatsite.com">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="123 Anywhere St., Any City">
+                </div>
+                <div class="form-group">
+                    <label for="website">Website / LinkedIn</label>
+                    <input type="text" id="website" placeholder="www.reallygreatsite.com">
+                </div>
+
+                <h2>Profile / Professional Summary</h2>
+                <div class="form-group">
+                    <label for="profileSummary">Profile Summary</label>
+                    <textarea id="profileSummary" rows="5" required></textarea>
+                </div>
+
+                <h2>Experience 1 (Most Recent)</h2>
+                <div class="form-group">
+                    <label for="exp1_title">Job Title / Role</label>
+                    <input type="text" id="exp1_title" placeholder="e.g., Marketing Manager & Specialist">
+                </div>
+                <div class="form-group">
+                    <label for="exp1_company">Company Name / Duration</label>
+                    <input type="text" id="exp1_company" placeholder="e.g., Borcelle Studio / 2030 - PRESENT">
+                </div>
+                <div class="form-group">
+                    <label for="exp1_desc">Key Achievements/Tasks (Use separate lines)</label>
+                    <textarea id="exp1_desc" rows="4" placeholder="Use separate lines for each achievement. **HINT: Start each line with an Action Verb (e.g., Developed, Managed).**"></textarea>
+                </div>
+                
+                <h2>Experience 2 (Optional)</h2>
+                <div class="form-group">
+                    <label for="exp2_title">Job Title / Role</label>
+                    <input type="text" id="exp2_title" placeholder="e.g., Previous Job Title">
+                </div>
+                <div class="form-group">
+                    <label for="exp2_company">Company Name / Duration</label>
+                    <input type="text" id="exp2_company" placeholder="e.g., Previous Company / 2028 - 2030">
+                </div>
+                <div class="form-group">
+                    <label for="exp2_desc">Key Achievements/Tasks (Use separate lines)</label>
+                    <textarea id="exp2_desc" rows="4" placeholder="Use separate lines for each achievement. **HINT: Start each line with an Action Verb (e.g., Streamlined, Led).**"></textarea>
+                </div>
+                
+                <h2>Education</h2>
+                <div class="form-group">
+                    <label for="edu1_degree">Degree/Major</label>
+                    <input type="text" id="edu1_degree" placeholder="e.g., Master of Business Management">
+                </div>
+                <div class="form-group">
+                    <label for="edu1_university">University/Institution & Years</label>
+                    <input type="text" id="edu1_university" placeholder="e.g., WARDIERE UNIVERSITY, 2029 - 2030">
+                </div>
+                   <div class="form-group">
+                    <label for="edu1_gpa">GPA / Relevant Info</label>
+                    <input type="text" id="edu1_gpa" placeholder="e.g., GPA: 3.8 / 4.0">
+                </div>
+                <h2>Skills</h2>
+                <div class="form-group">
+                    <label for="skills">Key Skills (e.g., Project Management, Teamwork)</label>
+                    <textarea id="skills" rows="3" placeholder="Enter skills, one per line."></textarea>
+                </div>
+                
+                <h2>Languages</h2>
+                <div class="form-group">
+                    <label for="languages">Languages (e.g., English (Fluent), Spanish (Basic))</label>
+                    <textarea id="languages" rows="3" placeholder="Enter languages, one per line."></textarea>
+                </div>
+                
+                <h2>References</h2>
+                <div class="form-group">
+                    <label for="ref1_name">Reference 1 Name</label>
+                    <input type="text" id="ref1_name" placeholder="e.g., Estelle Darcy">
+                </div>
+                <div class="form-group">
+                    <label for="ref1_title">Reference 1 Title / Company</label>
+                    <input type="text" id="ref1_title" placeholder="e.g., Wardiere Inc. / CTO">
+                </div>
+                <div class="form-group">
+                    <label for="ref1_contact">Reference 1 Contact (Phone/Email)</label>
+                    <input type="text" id="ref1_contact" placeholder="e.g., Phone: 123-456-7890, Email: hello@reallygreatsite.com">
+                </div>
+                <button type="button" id="validateAndGenerateBtn" class="submit-btn">Optimize & Generate Preview</button>
+            </form>
+        </div>
+
+        <div class="preview-panel">
+            <header>
+                <h2>Resume Preview</h2>
+                <button type="button" id="printBtn" class="print-btn">Print/Save as PDF 🖨️</button>
+            </header>
+            <div id="resumePreview" class="resume-output">
+                <p class="placeholder-text">Enter your details and click "Optimize & Generate Preview" to see your ATS-Ready resume.</p>
+            </div>
+        </div>
+    </main>
+    
+    <script src="home.js"></script> 
+    <script src="resume.js"></script>
+</body>
+</html>

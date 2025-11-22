@@ -1,0 +1,118 @@
+/* --- Page Background Setup --- */
+body {
+    /* Set body to relative for positioning fixed elements */
+    position: relative;
+    min-height: 100vh;
+}
+
+/* New Background for Find Job Page (Using img2.jpg) */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 118%;
+    background-image: url(''); /* Use the desk/resume image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Semi-transparent overlay for readability */
+.page-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0); /* A lighter overlay for professionalism */
+    z-index: -1;
+}
+
+/* --- New Styles for the Full Page Chat Interface --- */
+
+.chatbot-main-page {
+    /* Centers the main chat container on the page */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top, not center */
+    padding: 100px 20px 40px; /* Space below the fixed top bar */
+    min-height: calc(100vh - 80px); /* Fill screen height */
+}
+
+/* Chat Container (Was called .ai-chat-window before) */
+.ai-chat-window-full {
+    width: 100%;
+    max-width: 700px; /* Use a reasonable width for a webpage container */
+    height: 75vh; /* Take up most of the vertical space */
+    min-height: 500px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Chat Header (Simplified for a main page) */
+.ai-chat-window-full .chat-header {
+    padding: 15px;
+    background-color: #007bff; /* Use primary color */
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Chat Body (Messages) - Keep existing styling */
+.ai-chat-window-full .chat-body {
+    flex-grow: 5;
+    padding: 30px;
+    overflow-y: auto;
+    background-color: #f7f7f7;
+}
+
+/* Chat Footer (Input) - Keep existing styling */
+.ai-chat-window-full .chat-footer {
+    display: flex;
+    padding: 30px;
+    background-color: #fbfbfb;
+    border-top: 1px solid #fdfdfd;
+}
+
+select,
+input {
+    padding: 12px;
+    border: 2px solid #68a0d8;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    width: 80%;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+.send-Btn {
+    display: block;
+    width: 20%;
+    padding: 15px;
+    margin-top: 0.5px;
+    background-color: #28aa45;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+input {
+    resize: vertical;
+}
+
+
+
+/* Message styling (.ai-message, .user-message) should be kept from the previous CSS */

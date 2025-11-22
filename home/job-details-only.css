@@ -1,0 +1,86 @@
+/* job-details-only.css */
+
+/* --- Page Layout and Container Styles --- */
+.job-detail-section {
+    /* Ensures the main content is centered and readable */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff; /* Clean white background for the content box */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    line-height: 1.6;
+}
+
+/* --- Job Title and Navigation --- */
+.back-link {
+    display: block;
+    width: 10%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    
+    
+}
+.back-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.job-title-heading {
+    /* The main job title (h1) */
+    font-size: 2.2em;
+    color: #1a2a4b;
+    border-bottom: 3px solid #007bff; /* Primary color separator */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* --- Section Headings (H2) --- */
+.job-detail-section h2 {
+    font-size: 1.5em;
+    color: #007bff; /* Use primary color for section titles */
+    margin-top: 35px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0; /* Subtle line below H2 */
+}
+
+/* --- Bulleted List Styling (The "dots" description) --- */
+.job-detail-section ul {
+    list-style-type: disc; /* Ensures standard solid circles (dots) */
+    padding-left: 25px;
+    margin-bottom: 25px;
+}
+
+.job-detail-section ul li {
+    margin-bottom: 8px; /* Space between bullet points */
+    color: #333; /* Dark gray text for readability */
+    font-size: 1em;
+}
+
+/* Optional: Emphasize key terms in the lists */
+.job-detail-section ul li strong {
+    font-weight: 600;
+    color: #1a2a4b;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .job-detail-section {
+        padding: 15px;
+        margin: 10px;
+    }
+    .job-title-heading {
+        font-size: 1.8em;
+    }
+}
