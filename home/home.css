@@ -145,7 +145,7 @@ body {
     padding: 2.5rem ;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(156, 86, 86, 0);
-    text-align: left;
+    text-align: center;
     
     /* 3. Control the box width on large screens */
     max-width: 700px; 

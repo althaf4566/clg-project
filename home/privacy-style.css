@@ -6,7 +6,6 @@ body {
 }
 
 /* Background Image and Overlay - Consistent with home.css */
-/* Uses the same background logic, just ensuring it's applied here */
 .page-background {
     position: fixed;
     top: 0;
@@ -28,11 +27,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(129, 126, 126, 0.6); /* 60% white overlay */
+    /* Keeping the existing color */
+    background-color: rgba(129, 126, 126, 0.6); 
     z-index: -1;
 }
 
-/* --- Content Container --- */
+/* --- Content Container (Desktop Default) --- */
 .privacy-container {
     max-width: 900px;
     margin: 80px auto 40px; /* Adjusted top margin for fixed header */
@@ -44,7 +44,7 @@ body {
 }
 
 .privacy-header {
-    background-color: #373737; /* Light gray for documentation */
+    background-color: #373737; 
     color: #ffffff;
     padding: 30px 40px;
     text-align: center;
@@ -91,4 +91,42 @@ body {
     border-top: 1px dashed #ced4da;
     font-style: italic;
     font-weight: 600;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet and Mobile View (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    
+    .privacy-container {
+        /* Removes side margins, uses 100% width, but maintains a little side padding via margin */
+        max-width: 100%;
+        margin: 60px 10px 20px 10px; 
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    }
+
+    .privacy-header {
+        padding: 20px 15px; /* Reduce header padding */
+    }
+    
+    .privacy-header h1 {
+        font-size: 1.8rem; /* Shrink header font for mobile */
+    }
+    
+    .policy-content {
+        padding: 20px; /* Reduce content padding to give text more space */
+    }
+
+    .policy-content h2 {
+        font-size: 1.3rem; /* Shrink section header font */
+    }
+
+    .policy-content p, .policy-content li {
+        font-size: 0.95rem; /* Slightly reduce body font size for better mobile reading density */
+    }
+    
+    .policy-content ul {
+        margin-left: 15px; /* Reduce list indent */
+    }
 }
