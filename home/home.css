@@ -140,8 +140,8 @@ body {
 
 /* Welcome Container */
 .welcome-container {
-    background-color: rgba(255, 255, 255, 0); /* Slightly transparent white */
-    padding: 2rem 3.5rem;
+    background-color: rgba(193, 17, 17, 0); /* Slightly transparent white */
+    padding: 2.5rem ;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
     text-align: left;
