@@ -140,10 +140,10 @@ body {
 
 /* Welcome Container */
 .welcome-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 2.5rem;
+    background-color: rgba(255, 255, 255, 0); /* Slightly transparent white */
+    padding: 2rem 3.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
     text-align: left;
     
     /* 3. Control the box width on large screens */
@@ -200,9 +200,4 @@ body {
     .welcome-container h1 {
         font-size: 1.8rem;
     }
-}
-/* Ensure all images and video elements scale down when needed */
-img, video {
-    max-width: 100%; 
-    height: auto;    
 }
