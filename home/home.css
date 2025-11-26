@@ -125,7 +125,7 @@ body {
 
 /* --- Main Content (FLEX CONTAINER) --- */
 .main-content {
-    background-color: rgba(149, 32, 32, 0.9);
+    
     display: flex;
     /* 1. Set a wide max-width for the overall container */
     max-width: 1400px; 
@@ -144,7 +144,7 @@ body {
     background-color: rgba(149, 32, 32, 0.9); /* Slightly transparent white */
     padding: 2.5rem ;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+    box-shadow: 0 4px 10px rgba(156, 86, 86, 0.5);
     text-align: left;
     
     /* 3. Control the box width on large screens */
