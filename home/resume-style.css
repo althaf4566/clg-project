@@ -164,7 +164,7 @@ small {
     border: 5px solid rgba(255, 255, 255, 0.2); /* Lighter border */
 }
 .resume-output.template-image .sidebar-section h3 {
-    color: #fff; /* White title */
+    color: #010101; /* White title */
     border-bottom: 2px solid rgba(255, 255, 255, 0.4); /* Lighter divider */
     padding-bottom: 8px;
     margin-top: 30px;
