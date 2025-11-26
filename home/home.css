@@ -201,3 +201,8 @@ body {
         font-size: 1.8rem;
     }
 }
+/* Ensure all images and video elements scale down when needed */
+img, video {
+    max-width: 100%; 
+    height: auto;    
+}
