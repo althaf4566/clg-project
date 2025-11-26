@@ -31,7 +31,7 @@ body {
     z-index: -1;
 }
 
-/* --- Content Container --- */
+/* --- Content Container (Desktop Default) --- */
 .feedback-container {
     max-width: 700px;
     margin: 80px auto 40px; /* Adjusted top margin for fixed header */
@@ -133,4 +133,49 @@ textarea {
 .submit-btn:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet and Mobile View (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    
+    .feedback-container {
+        /* Removes side margins on small screens for full width */
+        max-width: 100%;
+        margin: 60px 10px 20px 10px; 
+        border-radius: 8px; /* Maintain slight border radius, or use 0 for full edge-to-edge */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Lighter shadow on mobile */
+    }
+
+    .feedback-header h1 {
+        font-size: 1.8rem; /* Shrink header font */
+    }
+
+    #feedbackForm {
+        padding: 20px; /* Reduce form padding */
+    }
+
+    /* Stack rating labels onto multiple lines if necessary */
+    .rating-group {
+        flex-wrap: wrap; 
+        gap: 8px; /* Smaller gap between labels */
+    }
+
+    .rating-group label {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Ensure form inputs are still readable */
+    select,
+    textarea {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .submit-btn {
+        padding: 12px; 
+        font-size: 1.1rem;
+    }
 }
