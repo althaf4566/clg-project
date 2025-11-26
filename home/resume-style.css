@@ -104,7 +104,7 @@ body {
 .resume-output {
     min-height: 400px;
     border: 1px solid #ddd;
-    background-color: white;
+    background-color: rgb(158, 60, 60);
     padding: 30px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
