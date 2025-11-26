@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     color: #333333;
-    position: relative; /* Needed for the absolute positioning of the background */
-    min-height: 100vh; /* Ensures the body covers the entire screen height */
+    position: relative;
+    min-height: 100vh;
 }
 
 /* New Background and Overlay */
@@ -38,8 +38,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.2rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky; /* Sticky bar for better mobile navigation */
+    top: 0;
+    z-index: 999;
 }
 
 .app-logo {
@@ -76,7 +79,9 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 250px;
+    /* Use a relative unit for width on mobile */
+    width: 80%; 
+    max-width: 250px;
     background-color: #1a2a4b;
     color: #fff;
     transform: translateX(-100%);
@@ -121,21 +126,25 @@ body {
 
 /* --- Main Content --- */
 .main-content {
-    padding: 2rem;
-    max-width: 750px;
+    /* Adjusted max-width to be slightly larger for better desktop balance */
+    max-width: 1000px; 
     margin: 0 auto;
+    padding: 2rem; /* Keep padding for mobile readability */
 }
 
+/* DEFAULT (DESKTOP) STYLES for Welcome Container */
 .welcome-container {
-    background-color: rgba(255, 255, 255, 0); /* Slightly transparent white */
-    padding: 2rem 3.5rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Added white background for readability on desktop */
+    padding: 2.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
-    text-align: center;
-    position: absolute;
-    top: 8.5rem;
-    right: 4rem;
-    left: 43rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    text-align: left; /* Aligned text to the left */
+    
+    /* MODIFIED: Use relative positioning within main-content for better flow */
+    position: static; 
+    margin: 4rem auto; /* Centered with top/bottom margin */
+    width: 50%; /* Took up half the space on desktop */
+    float: right; /* Floated it to the right side of the main-content */
 }
 
 .welcome-container h1 {
@@ -147,4 +156,58 @@ body {
 .welcome-container p {
     font-size: 1rem;
     color: #464545;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet & Smaller Desktop View (1024px to 769px) */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        max-width: 90%; /* Use 90% width of the screen */
+    }
+    
+    /* Welcome Container adapts to take more space on the right */
+    .welcome-container {
+        width: 60%; 
+        float: right;
+        padding: 2rem;
+        margin: 2rem auto;
+    }
+}
+
+
+/* Mobile and Small Tablet View (768px and smaller) */
+@media screen and (max-width: 768px) {
+    
+    /* Make the logo shrink a bit */
+    .app-logo {
+        font-size: 1.3rem;
+    }
+
+    /* Important: Reset the container to take full width and stop floating */
+    .welcome-container {
+        width: 100%;
+        float: none;
+        position: static;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        text-align: center; /* Center-align text on mobile */
+        /* Use a slightly more transparent background for mobile to let background show */
+        background-color: rgba(255, 255, 255, 0.95); 
+    }
+
+    .welcome-container h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Extra Small Mobile View (600px and smaller) */
+@media screen and (max-width: 600px) {
+    .top-bar {
+        padding: 0.2rem 1rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
 }
