@@ -24,7 +24,7 @@ async function handleLogin(email, password) {
             
             // 2. Log success and redirect
             console.log('Login successful. Token:', data.token);
-            window.location.href = '../index.html'; // Redirect to the user's main dashboard or home page
+            window.location.href = 'home.html'; // Redirect to the user's main dashboard or home page
         } else {
             // Failure. The server returned a 4xx error (e.g., Invalid Credentials)
             // Display the specific error message provided by the backend

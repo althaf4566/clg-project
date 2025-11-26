@@ -18,7 +18,7 @@ async function handleSignUp(fullName, email, password) {
             localStorage.setItem('jobreckoToken', data.token);
             console.log('User registered. Token:', data.token);
             // NOTE: Ensure your home page path is correct (e.g., 'home.html')
-            window.location.href = '../index.html'; 
+            window.location.href = 'home.html'; 
         } else {
             // Failure. Display the error message from the backend
             alert('Sign-up failed: ' + data.msg);
