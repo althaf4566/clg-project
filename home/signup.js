@@ -3,7 +3,7 @@
 // Your asynchronous function to handle the API call (as provided)
 async function handleSignUp(fullName, email, password) {
     try {
-        const response = await fetch('http://localhost:3000/api/auth/signup', {
+        const response = await fetch('https://clg-project-backend.onrender.com/api/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ async function handleSignUp(fullName, email, password) {
             localStorage.setItem('jobreckoToken', data.token);
             console.log('User registered. Token:', data.token);
             // NOTE: Ensure your home page path is correct (e.g., 'home.html')
-            window.location.href = 'home.html'; 
+            window.location.href = '../index.html'; 
         } else {
             // Failure. Display the error message from the backend
             alert('Sign-up failed: ' + data.msg);
