@@ -1,6 +1,6 @@
 // consolidated-script.js - Handles Navigation, Tab Switching, Profile Save, and Job Search
 
-const BACKEND_URL = 'http://localhost:3000/api/jobs'; // Base URL for consolidated routes
+const BACKEND_URL = 'https://clg-project-backend.onrender.com/api/jobs'; // Base URL for consolidated routes
 
 document.addEventListener('DOMContentLoaded', () => {
     
