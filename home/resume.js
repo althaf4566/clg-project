@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (const id in data) {
                     const element = document.getElementById(id);
                     if (element) {
-                        element.value = data[id];
+                        // ✅ FIX: Skip setting value for file inputs like 'userPhoto' to prevent InvalidStateError
+                        if (element.type !== 'file') { 
+                            element.value = data[id];
+                        }
                     }
                 }
                 
@@ -228,8 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <div class="resume-main-content">
                     <header class="main-header">
-                        <h1>${data.fullName || 'YOUR FULL NAME'}</h1>                      
-                        <p class="job-title-header">${data.jobTitleHeader || 'Your Professional Title'}</p>
+                        <h1>${data.fullName || '[ENTER FULL NAME HERE]'}</h1>
+                        <p class="job-title-header">${data.jobTitleHeader || '[ENTER JOB TITLE HERE]'}</p>
                     </header>
                     
                     <div class="main-content-section">
@@ -314,8 +317,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="resume-main-content">
                     <header class="main-header">
-                        <h1>${data.fullName || 'YOUR FULL NAME'}</h1>
-                        <p class="job-title-header">${data.jobTitleHeader || 'Your Professional Title'}</p>
+                        <h1>${data.fullName || '[ENTER FULL NAME HERE]'}</h1>
+                        <p class="job-title-header">${data.jobTitleHeader || '[ENTER JOB TITLE HERE]'}</p>
                     </header>
                     
                     <div class="main-content-section">
@@ -369,8 +372,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="resume-main-content">
                     <header class="main-header">
                         ${photoHtml}
-                        <h1>${data.fullName || 'YOUR FULL NAME'}</h1>
-                        <p class="job-title-header">${data.jobTitleHeader || 'Your Professional Title'}</p>
+                        <h1>${data.fullName || '[ENTER FULL NAME HERE]'}</h1>
+                        <p class="job-title-header">${data.jobTitleHeader || '[ENTER JOB TITLE HERE]'}</p>
                     </header>
                     
                     <div class="contact-section">

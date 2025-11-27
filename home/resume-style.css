@@ -148,7 +148,8 @@ small {
     width: 35%; /* Wider sidebar as per image */
     background-color: #023F5D; /* Dark blue background */
     padding: 40px 25px; /* Adjust padding */
-    color: #fff; /* White text */
+    /* 🎨 LEFT COLUMN DEFAULT TEXT COLOR */
+    color: #ffffff; /* Left Column General Text Color (Default White) */
     line-height: 1.4;
     box-sizing: border-box;
 }
@@ -164,7 +165,8 @@ small {
     border: 5px solid rgba(255, 255, 255, 0.2); /* Lighter border */
 }
 .resume-output.template-image .sidebar-section h3 {
-    color: #010101; /* White title */
+    /* 🎨 LEFT COLUMN SECTION TITLE COLOR */
+    color: #ffffff; /* White title */
     border-bottom: 2px solid rgba(255, 255, 255, 0.4); /* Lighter divider */
     padding-bottom: 8px;
     margin-top: 30px;
@@ -182,6 +184,7 @@ small {
 }
 .resume-output.template-image .contact-item i {
     margin-right: 10px;
+    /* 🎨 LEFT COLUMN ICON/HIGHLIGHT COLOR */
     color: #A9D9F8; /* Light blue icon color */
     width: 20px; /* Fixed width for icons */
     text-align: center;
@@ -199,6 +202,7 @@ small {
 }
 .resume-output.template-image .sidebar-list li::before {
     content: '•'; /* Custom bullet point */
+    /* 🎨 LEFT COLUMN BULLET COLOR */
     color: #A9D9F8; /* Light blue bullet */
     display: inline-block;
     width: 1em;
@@ -211,6 +215,7 @@ small {
 }
 .resume-output.template-image .education-item .degree {
     font-weight: bold;
+    /* 🎨 LEFT COLUMN EDUCATION DEGREE COLOR */
     color: #A9D9F8;
     margin-top: 5px;
 }
@@ -225,6 +230,8 @@ small {
     width: 65%; /* Narrower main content as per image */
     padding: 40px 40px 40px 30px; /* Adjust padding */
     box-sizing: border-box;
+    /* 🎨 RIGHT COLUMN DEFAULT TEXT COLOR */
+    color:#000000; /* Right Column General Text Color (Default Black) */
     background-color: #fff;
 }
 .resume-output.template-image .main-header {
@@ -233,16 +240,27 @@ small {
     border-bottom: 3px solid #E0E0E0; /* Light gray divider */
 }
 
+/* >>>>>>>>>>>>>>>>>> NAME/TITLE FIX START <<<<<<<<<<<<<<<<<<< */
 .resume-output.template-image  .main-header h1 {
-    font-size: 1.5em; color: #1a2a4b; margin: 0;text-transform: uppercase;
+    font-size: 1.5em; 
+    /* 🎨 RIGHT COLUMN FULL NAME COLOR */
+    color: #000000; /* FIXED: Changed color to black for better visibility */
+    margin: 0;
+    /* FIXED: Removed 'text-transform: uppercase;' to display name as entered */
 }
+/* >>>>>>>>>>>>>>>>>> NAME/TITLE FIX END <<<<<<<<<<<<<<<<<<< */
+
 .resume-output.template-image  .main-header .job-title-header {
-    font-size: 1.1em; color: #555; margin-top: 5px;
+    font-size: 1.1em; 
+    /* 🎨 RIGHT COLUMN JOB TITLE COLOR */
+    color: #555; 
+    margin-top: 5px;
 }
 
 
 
 .resume-output.template-image .main-content-section h3 {
+    /* 🎨 RIGHT COLUMN SECTION TITLE COLOR */
     color: #2F2F2F; /* Dark title */
     border-bottom: 2px solid #E0E0E0; /* Lighter divider */
     padding-bottom: 8px;
@@ -264,6 +282,7 @@ small {
 }
 .resume-output.template-image .experience-item .job-title-exp {
     font-weight: bold;
+    /* 🎨 RIGHT COLUMN JOB TITLE (EXP) COLOR */
     color: #2F2F2F;
     margin-bottom: 3px;
     font-size: 1.1em;
@@ -482,30 +501,22 @@ small {
 
 
 /* ------------------------------------------------ */
-/* 🖨 PRINT MEDIA QUERIES FOR PDF/PRINTING (Fix) */
+/* 🖨 PRINT MEDIA QUERIES FOR PDF/PRINTING (FIXED) */
 /* ------------------------------------------------ */
 @media print {
-    /* Hide all elements that are not part of the resume output */
-    .top-bar, /* Hide the main navigation bar */
-    .nav-menu, /* Hide the side menu */
-    .input-panel, /* Hide the entire input form */
-    .print-btn, /* Hide the print button itself */
-    .placeholder-text, /* Hide the placeholder text */
-    .resume-maker-main::before, /* Hide any background overlays/pseudo-elements if applicable */
-    .page-background /* Hide the main page background */
-     {
+    /* Hide non-resume elements */
+    .top-bar, .nav-menu, .input-panel, .print-btn, .placeholder-text, .page-background, .preview-panel header {
         display: none !important;
     }
 
-    /* Make the resume preview the only visible element */
+    /* Main layout reset for print */
     .resume-maker-main {
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
-        display: block !important; /* Switch to block layout for printing */
+        display: block !important; 
     }
 
-    /* Ensure the preview-panel and its header are handled correctly */
     .preview-panel {
         flex: none !important;
         width: 100% !important;
@@ -515,41 +526,107 @@ small {
         border-radius: 0 !important;
         background-color: transparent !important;
     }
-    
-    .preview-panel header {
-        /* Hide the header in the preview panel that contains the title and print button */
-        display: none !important; 
-    }
 
-    /* Ensure the resume content itself is properly formatted for A4/Letter page */
+    /* Ensure resume content is the only thing printed */
     .resume-output {
         min-height: 100vh;
         width: 100%; 
-        display: flex; /* Maintain flex/two-column structure for templates that use it */
+        display: flex; /* Keep flex for two-column templates */
         flex-direction: row; 
         position: relative;
         overflow: visible;
         box-sizing: border-box;
+        /* FIX 1: Set explicit margin for the entire printable area (default output margins fix) */
+        margin: 10mm; 
     }
     
     /* Ensure all text is black for printing (high contrast) */
     .resume-output *, .resume-output {
-        color: #000 !important;
+        color: #050505 !important;
     }
 
-    /* Set uniform padding for all templates for print quality */
-    .resume-output.template-image,
-    .resume-output.modern-default,
-    .resume-output.classic {
-        padding: 0 !important; /* Resetting padding here as main content handles it */
+    /* FIX 2: Ensure the sidebar background is printed and content is visible */
+    .resume-output.template-image .resume-sidebar {
+        -webkit-print-color-adjust: exact; /* Force Chrome/Safari to print background color */
+        print-color-adjust: exact; /* Standard way to force background color print */
+        background-color: #023F5D !important;
     }
     
-    /* Apply standard margin/padding to main content sections within the resume output */
+    /* FIX 3: Ensure main header text (Name/Title) is visible against white background */
+    .resume-output.template-image .main-header h1,
+    .resume-output.template-image .main-header .job-title-header {
+        color: #000000 !important; /* Force black color for print */
+    }
+
+    .resume-output.template-image .resume-sidebar * {
+        /* Force sidebar content to be white against the dark background */
+        color: #ffffff !important; 
+    }
+    
+    /* Apply standard padding for print quality on A4/Letter page */
     .resume-output.template-image .resume-sidebar,
     .resume-output.template-image .resume-main-content,
     .resume-output.modern-default .resume-sidebar,
     .resume-output.modern-default .resume-main-content,
     .resume-output.classic {
-        padding: 10mm 15mm !important; /* Use real-world units for consistent printing */
-    };
+        padding: 10mm 15mm !important; 
+    }
+    /* Reset main resume wrapper padding/margin to prevent double margin */
+    .resume-output.template-image,
+    .resume-output.modern-default,
+    .resume-output.classic {
+        padding: 0 !important;
+    }
+}
+
+/* ------------------------------------------------ */
+/* 📱 RESPONSIVE MEDIA QUERY FOR SMALL DISPLAYS */
+/* ------------------------------------------------ */
+@media (max-width: 768px) {
+    /* Main layout stacks panels vertically */
+    .resume-maker-main {
+        flex-direction: column; /* Stack input and preview */
+        margin-top: 60px; 
+        padding: 10px;
+    }
+    
+    /* Input Panel adjustments */
+    .input-panel {
+        max-height: none; 
+        overflow-y: visible; 
+        padding: 15px;
+        order: 1; /* Place input first */
+    }
+
+    /* Grid layout for personal details fields should stack too */
+    .form-grid-2 {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 10px;
+    }
+    
+    /* Preview Panel adjustments */
+    .preview-panel {
+        order: 2; /* Place preview second, under the input fields */
+        margin-top: 20px;
+    }
+    
+    /* --- Resume Output Responsiveness (Two-Column Templates) --- */
+    /* The main content should also stack the two columns in the resume output */
+    .resume-output.template-image,
+    .resume-output.modern-default {
+        flex-direction: column; /* Stack sidebar and main content */
+    }
+
+    .resume-output.template-image .resume-sidebar,
+    .resume-output.template-image .resume-main-content,
+    .resume-output.modern-default .resume-sidebar,
+    .resume-output.modern-default .resume-main-content {
+        width: 100%; /* Make both sections full width */
+        padding: 20px; /* Adjust padding for mobile */
+    }
+    
+    /* Ensure sidebar text remains readable against a dark background */
+    .resume-output.template-image .resume-sidebar {
+        padding: 30px 20px;
+    }
 }
