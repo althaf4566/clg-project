@@ -12,7 +12,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images1.jpg'); /* Your career journey image */
+    background-color: #FFC72C; /* Your career journey image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,14 +27,14 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.6); /* 60% white overlay */
+    background-color: #ffd667; /* 60% white overlay */
     z-index: -1;
 }
 
 /* --- Content Container (Desktop Default) --- */
 .feedback-container {
     max-width: 700px;
-    margin: 80px auto 40px; /* Adjusted top margin for fixed header */
+    margin: 30px auto 40px; /* Adjusted top margin for fixed header */
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

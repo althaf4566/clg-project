@@ -40,18 +40,19 @@ body {
     justify-content: center;
     align-items: flex-start; /* Align to the top, not center */
     /* Adjusted padding top slightly to account for the top bar height */
-    padding: 70px 20px 20px; 
-    min-height: 100vh; /* Fill entire viewport height */
+    padding: 40px 20px 20px; 
+    min-height: 80vh; /* Fill entire viewport height */
     box-sizing: border-box;
 }
 
 /* Chat Container (The main box) */
 .ai-chat-window-full {
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
+    max-height: 580px;
     /* Use calc for height to ensure it fits well on all screens */
     height: calc(100vh - 90px); 
-    min-height: 500px;
+    min-height: 100px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 12px;
