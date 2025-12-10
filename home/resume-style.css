@@ -101,7 +101,7 @@ small {
 /* Preview Panel */
 .preview-panel {
     flex: 1; 
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 0;
@@ -117,13 +117,15 @@ small {
     background-color: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid #dee2e6;
 }
-.preview-panel h2 { margin: 0; color: #000000; }
+.preview-panel h2 { margin: 0; color: #ffffff; }
 .print-btn {
     background-color: #28a745;
     color: #fff;
     border: none;
-    padding: 8px 15px;
+    padding: 13px 15px;
     border-radius: 6px;
+    position: relative;
+    left: 500px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
@@ -246,6 +248,7 @@ small {
     /* 🎨 RIGHT COLUMN FULL NAME COLOR */
     color: #000000; /* FIXED: Changed color to black for better visibility */
     margin: 0;
+    text-transform: capitalize;
     /* FIXED: Removed 'text-transform: uppercase;' to display name as entered */
 }
 /* >>>>>>>>>>>>>>>>>> NAME/TITLE FIX END <<<<<<<<<<<<<<<<<<< */
@@ -255,6 +258,7 @@ small {
     /* 🎨 RIGHT COLUMN JOB TITLE COLOR */
     color: #555; 
     margin-top: 5px;
+    text-transform: capitalize;
 }
 
 
@@ -342,7 +346,7 @@ small {
     line-height: 1.2;
 }
 .resume-output.modern-default .resume-sidebar h3 {
-    color: #fff;
+    color: #ffffff;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
     padding-bottom: 5px;
     margin-top: 25px;
@@ -370,10 +374,10 @@ small {
     background-color: #fff;
 }
 .resume-output.modern-default .main-header h1 {
-    font-size: 2.2em; color: #1a2a4b; margin: 0;
+    font-size: 2em; color: #000000; margin: 0;   text-transform: capitalize;
 }
 .resume-output.modern-default .main-header .job-title-header {
-    font-size: 1.1em; color: #555; margin-top: 5px;
+    font-size: 1.3em; color: #090909; margin-top: 5px; text-transform: capitalize;
 }
 .resume-output.modern-default .main-content-section h3 {
     color: #1a2a4b; border-bottom: 1px solid #dee2e6; padding-bottom: 5px; margin-top: 20px; margin-bottom: 10px; font-size: 1.3rem;
@@ -423,10 +427,10 @@ small {
     margin-bottom: 20px;
 }
 .resume-output.classic .main-header h1 {
-    font-size: 2.5em; color: #1a2a4b; margin: 0;
+    font-size: 2.5em; color: #1a2a4b; margin: 0; text-transform: capitalize;
 }
 .resume-output.classic .main-header .job-title-header {
-    font-size: 1.2em; color: #555; margin-top: 5px;
+    font-size: 1.2em; color: #555; margin-top: 5px; text-transform: capitalize;
 }
 .resume-output.classic .contact-section {
     text-align: center;
@@ -505,7 +509,7 @@ small {
 /* ------------------------------------------------ */
 @media print {
     /* Hide non-resume elements */
-    .top-bar, .nav-menu, .input-panel, .print-btn, .placeholder-text, .page-background, .preview-panel header {
+    .top-bar, .nav-menu, .input-panel, .print-btn, .placeholder-text, .page-background {
         display: none !important;
     }
 
@@ -529,7 +533,7 @@ small {
 
     /* Ensure resume content is the only thing printed */
     .resume-output {
-        min-height: 100vh;
+        min-height: 90vh;
         width: 100%; 
         display: flex; /* Keep flex for two-column templates */
         flex-direction: row; 
@@ -559,6 +563,48 @@ small {
     }
 
     .resume-output.template-image .resume-sidebar * {
+        /* Force sidebar content to be white against the dark background */
+        color: #ffffff !important; 
+    }
+    
+    /* Apply standard padding for print quality on A4/Letter page */
+    .resume-output.template-image .resume-sidebar,
+    .resume-output.template-image .resume-main-content,
+    .resume-output.modern-default .resume-sidebar,
+    .resume-output.modern-default .resume-main-content,
+    .resume-output.classic {
+        padding: 10mm 15mm !important; 
+    }
+    /* Reset main resume wrapper padding/margin to prevent double margin */
+    .resume-output.template-image,
+    .resume-output.modern-default,
+    .resume-output.classic {
+        padding: 0 !important;
+    }
+
+
+/* template 2 */
+
+
+    /* Ensure all text is black for printing (high contrast) */
+    .resume-output *, .resume-output {
+        color: #050505 !important;
+    }
+
+    /* FIX 2: Ensure the sidebar background is printed and content is visible */
+    .resume-output.modern-default .resume-sidebar  {
+        -webkit-print-color-adjust: exact; /* Force Chrome/Safari to print background color */
+        print-color-adjust: exact; /* Standard way to force background color print */
+        background-color: #3f51b5 !important;
+    }
+    
+    /* FIX 3: Ensure main header text (Name/Title) is visible against white background */
+    .resume-output.modern-default .main-header h1,
+    .resume-output.modern-default .main-header .job-title-header {
+        color: #000000 !important; /* Force black color for print */
+    }
+
+    .resume-output.modern-default .resume-sidebar  * {
         /* Force sidebar content to be white against the dark background */
         color: #ffffff !important; 
     }
