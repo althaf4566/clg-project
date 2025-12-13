@@ -52,6 +52,8 @@ body {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
+    position: relative;
+    left: 33px;
     color: #fff; /* Changed logo color to white */
 }
 
@@ -179,4 +181,102 @@ body {
     padding: 2rem;
     background-color: #31353a;
     color: #adb5bd;
+}
+
+/* =================================== */
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+/* =================================== */
+
+@media (max-width: 768px) {
+    /* Adjustments for Tablets and smaller */
+
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        /* Make buttons stack on top of each other */
+        display: block; 
+        width: 80%;
+        max-width: 300px;
+        margin: 15px auto;
+    }
+
+    /* Features Section */
+    .features-grid {
+        /* Stack features vertically */
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .feature-card {
+        /* Take up more width */
+        max-width: 90%; 
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Adjustments for Mobile Phones */
+
+    /* Navigation Bar */
+    .navbar {
+        /* Keep logo and nav links in a single row */
+        flex-direction: row; 
+        padding: 1rem;
+        position: relative; 
+        width: auto;
+        left: auto;
+        right: auto;
+        /* Ensure there's space between logo and nav links */
+        justify-content: space-between;
+    }
+
+    .logo {
+        /* Remove vertical margin */
+        margin-bottom: 0;
+    }
+    
+    .navbar nav {
+        /* Keep nav links horizontal */
+        flex-direction: row;
+        width: auto;
+        /* Reduce the space the links take up */
+        flex-grow: 0;
+    }
+
+    .navbar a {
+        /* Reduce horizontal margin for tighter fit */
+        margin-left: 10px; 
+        padding: 5px 0;
+        width: auto;
+        text-align: center;
+        font-size: 0.9rem; /* Slightly smaller font to save space */
+    }
+
+    .nav-btn {
+        margin-top: 0; /* Remove vertical margin */
+        width: auto;
+        padding: 5px 10px; /* Smaller button padding */
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    /* General Padding */
+    .features-section {
+        padding: 3rem 1rem;
+    }
 }
