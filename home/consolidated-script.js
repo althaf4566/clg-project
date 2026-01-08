@@ -1,9 +1,9 @@
-// consolidated-script.js - Updated for Flask Integration
-const BACKEND_URL = '/api/jobs'; // Points to your local Flask route
+// consolidated-script.js
+const BACKEND_URL = '/api/jobs'; // Matches the @app.route('/api/jobs') in Python
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. NAVIGATION LOGIC
+    // 1. NAVIGATION LOGIC (Stays the same)
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const closeNavBtn = document.getElementById('close-nav');
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 Interested_Subjects: document.getElementById('Interested_Subjects').value,
                 Career_Area: document.getElementById('Career_Area').value,
                 Company_Type: document.getElementById('Company_Type').value,
-                // These handle the categorical logic from demo5_dwnld.py
                 Self_Learning: "yes", 
                 Extra_courses: "yes",
                 Goal: "job",
@@ -51,23 +50,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 Teamwork_Exp: "yes"
             };
 
+            // ACTUAL CONNECTION TO ML MODEL
             try {
-                const response = await fetch(BACKEND_URL, {
+                const response = await fetch('http://127.0.0.1:5000/api/jobs', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData) // Sends form data to Python
                 });
 
-                const data = await response.json();
+                const result = await response.json();
 
-                if (response.ok) {
-                    displayJobResults(data.recommended_jobs);
+                if (result.msg === "Success") {
+                    displayJobResults(result.recommended_jobs);
                 } else {
-                    resultsContainer.innerHTML = `<p class="error-message">❌ Error: ${data.msg}</p>`;
+                    resultsContainer.innerHTML = `<p style="color:red;">Error: ${result.msg}</p>`;
                 }
             } catch (error) {
-                resultsContainer.innerHTML = '<p class="error-message">🌐 Connection Error: Is your Flask server running?</p>';
-                console.error('Fetch error:', error);
+                console.error('Connection Error:', error);
+                resultsContainer.innerHTML = '<p style="color:red;">Could not connect to the AI server.</p>';
             }
         });
     }
@@ -81,14 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '<h3 style="margin-bottom:15px;">Top AI-Matched Job:</h3>';
         jobs.forEach(job => {
             html += `
-                <div class="job-card" style="border-left: 5px solid #1a73e8; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-                    <div style="flex-grow: 1;">
+                <div class="job-card" style="border-left: 5px solid #1a73e8; padding: 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
                         <strong style="font-size: 1.2rem; color: #1a73e8;">${job.title}</strong><br>
-                        <small style="color: #666;">Category: ${job.company}</small>
+                        <small style="color: #666;">Match Type: ${job.company}</small>
                     </div>
-                    <div style="text-align: right;">
+                    <div>
                         <span class="score" style="background: #1a73e8; color: white; padding: 5px 10px; border-radius: 20px; font-weight: bold;">
-                            ${job.match_score}% Match
+                            ${job.match_score}%
                         </span>
                     </div>
                 </div>

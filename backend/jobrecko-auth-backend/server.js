@@ -29,7 +29,7 @@ app.use(cors()); // Allows cross-origin requests from your frontend
 app.use(express.json({ extended: false })); // Body parser for JSON data
 
 // Define API Routes
-app.use('/api/jobs', require('./routes/api/jobs')); 
+//app.use('/api/jobs', require('./routes/api/jobs')); 
 // Note: This connects /api/jobs/profile and /api/jobs/search
 
 
